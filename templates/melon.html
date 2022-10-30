@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block body %}
+<div id="melon-list">
+  {% for melon in melon_list %}
+  <div class="card text-center">
+    <a href="{{ url_for('individualMelons', melon_id=melon.melon_id) }}"
+      ><img class="melon-image" src="{{ melon.image_url }}" alt="Melon Pics"
+    /></a>
+    <h5>
+      <a
+        href="{{ url_for('individualMelons', melon_id=melon.melon_id) }}"
+        class="links"
+      >
+        {{ melon.common_name }}</a
+      >
+    </h5>
+    {{ melon.price_str() }}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
